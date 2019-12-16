@@ -17,7 +17,7 @@
 	"env": {
 		"BUCKET_NAME":      { "description": "您的oss bucket名" },
 		"BUCKET_API_KEY":       { "description": "" },
-		"BUCKET_API_SECRET":   { "description": "" },
+		"BUCKET_API_SECRET":   { "description": "" }
 	},
 	"addons": [
 	],
