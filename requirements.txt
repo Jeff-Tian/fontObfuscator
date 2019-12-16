@@ -32,3 +32,4 @@ ujson==1.35
 urllib3==1.25.7
 uvloop==0.14.0
 websockets==8.1
+gunicorn
