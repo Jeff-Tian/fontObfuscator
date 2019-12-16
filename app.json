@@ -8,7 +8,7 @@
 		"python"
 	],
 	"website": "https://github.com/solarhell/fontObfuscator",
-	"repository": "https://github.com/solarhell/fontObfuscator",
+	"repository": "https://github.com/Jeff-Tian/fontObfuscator.git",
 	"logo": "https://s.w.org/about/images/logos/wordpress-logo-notext-rgb.png",
 	"success_url": "/",
 	"scripts": {
