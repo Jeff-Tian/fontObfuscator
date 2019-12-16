@@ -1,15 +1,18 @@
 import uuid
+import os
 
 from sanic import Sanic
 from sanic.response import json, text
 
-from config import BUCKET_HOST
 from src.core import obfuscate, obfuscate_plus
 from src.model import common_response
 from src.upload import upload_to_oss, delete_file
 from src.utils import base64_binary
 
+from src.config import BUCKET_HOST
+
 app = Sanic()
+app.static('/static', './static')
 
 
 @app.get('/')
@@ -26,7 +29,8 @@ async def encrypt(request):
     upload = request.json['upload']
     try:
         filename = str(uuid.uuid4())
-        font_files = obfuscate(plain_text, shadow_text, filename, only_ttf, 'output')
+        font_files = obfuscate(plain_text, shadow_text,
+                               filename, only_ttf, 'output')
 
         base64ed = {}
         if upload:
@@ -58,7 +62,8 @@ async def encrypt(request):
     upload = request.json['upload']
     try:
         filename = str(uuid.uuid4())
-        font_files, html_entities = obfuscate_plus(plain_text, filename, only_ttf, 'output')
+        font_files, html_entities = obfuscate_plus(
+            plain_text, filename, only_ttf, 'output')
 
         base64ed = {}
         if upload:
@@ -84,4 +89,4 @@ async def encrypt(request):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=1323, debug=False)
+    app.run(host='0.0.0.0', port=int(os.environ['PORT']), debug=False)

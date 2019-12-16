@@ -5,9 +5,10 @@ from fontTools.fontBuilder import FontBuilder
 from fontTools.pens.ttGlyphPen import TTGlyphPen
 from fontTools.ttLib import TTFont
 
-from config import NAME_STRING
 from src.utils import str_has_whitespace, str_has_emoji, deduplicate_str, ensure_cmap_has_all_text, subset_ttf_font, \
     get_project_root
+
+from src.config import NAME_STRING
 
 root = get_project_root()
 
@@ -34,7 +35,8 @@ def obfuscate(plain_text, shadow_text, filename: str, only_ttf: bool, target_pat
         raise Exception('没有意义的混淆')
 
     if len(plain_text) != len(shadow_text):
-        raise Exception('阴书的有效长度需与明文一致')
+        raise Exception('阴书的有效长度需与明文一致: ' + str(len(plain_text)) +
+                        ' != ' + str(len(shadow_text)))
 
     original_font = TTFont(root / 'base-font/KaiGenGothicCN-Regular.ttf')
     # https://github.com/fonttools/fonttools/blob/4.0.1/Lib/fontTools/fontBuilder.py#L28
@@ -91,7 +93,8 @@ def obfuscate(plain_text, shadow_text, filename: str, only_ttf: bool, target_pat
         glyph_set[original_cmap[ord(plain)]].draw(pen)
         glyphs[shadow_cmap_name] = pen.glyph()
 
-        metrics[shadow_cmap_name] = original_font['hmtx'][original_cmap[ord(plain)]]
+        metrics[shadow_cmap_name] = original_font['hmtx'][original_cmap[ord(
+            plain)]]
 
         cmap[ord(shadow)] = shadow_cmap_name
 
@@ -217,7 +220,8 @@ def obfuscate_plus(plain_text, filename: str, only_ttf: bool, target_path: str =
         glyph_set[original_cmap[ord(plain)]].draw(pen)
         glyphs[shadow_cmap_name] = pen.glyph()
 
-        metrics[shadow_cmap_name] = original_font['hmtx'][original_cmap[ord(plain)]]
+        metrics[shadow_cmap_name] = original_font['hmtx'][original_cmap[ord(
+            plain)]]
 
         cmap[private_codes[index]] = shadow_cmap_name
         html_entities += [hex(private_codes[index]).replace('0x', '&#x')]

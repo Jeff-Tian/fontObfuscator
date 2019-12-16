@@ -1,4 +1,4 @@
-from src.core import obfuscate, obfuscate_plus
+from core import obfuscate, obfuscate_plus
 
 if __name__ == '__main__':
     print(obfuscate('真0123456789好', '假6982075431的', 'test', False, 'test'))
