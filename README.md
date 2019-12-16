@@ -4,20 +4,20 @@
 
 感谢[基础字体作者](https://github.com/minjiex/kaigen-gothic)。
 
-利用 `fontTools` 包，可以混淆英文，数字以及大部分CJK字符。
+利用 `fontTools` 包，可以混淆英文，数字以及大部分 CJK 字符。
 
 制作出的字体可以用于反爬虫、保护隐私信息。
 
-支持生成本地字体文件、base64内容，也可以上传到阿里云oss。
+支持生成本地字体文件、base64 内容，也可以上传到阿里云 oss。
 
-如需使用阿里云oss，请修改 `config.py`。
+如需使用阿里云 oss，请修改 `config.py`。
 
 ![showcase](test/showcase.png)
 ![showcase_2](test/showcase_2.png)
 
 ## 测试
 
-建议先新建一个python venv
+建议先新建一个 python venv
 
 ```shell script
 python3 -m venv venv
@@ -30,11 +30,9 @@ python3 run test.py
 
 然后打开 `test/demo.html` 即可体验效果。
 
-
 ## API
 
-如果需要上传到阿里云oss，请将`upload`设置为`true`。
-
+如果需要上传到阿里云 oss，请将`upload`设置为`true`。
 
 ### 普通混淆（明文+阴书）
 
@@ -50,8 +48,7 @@ curl -X POST \
 }'
 ```
 
-
-### 加强混淆（混淆name ）
+### 加强混淆（混淆 name ）
 
 ```shell script
 curl -X POST \
@@ -64,5 +61,12 @@ curl -X POST \
 }'
 ```
 
-### Deploy 
+### 部署
+
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+### 本地运行
+
+```shell
+PORT=1111 python3 wsgi.py
+```
