@@ -1,0 +1,25 @@
+{
+	"name": "Font Obfuscator",
+	"description": "字体混淆，反爬虫",
+	"keywords": [
+		"font",
+		"obfuscator",
+		"anti scrawler",
+		"python"
+	],
+	"website": "https://github.com/solarhell/fontObfuscator",
+	"repository": "https://github.com/solarhell/fontObfuscator",
+	"logo": "https://s.w.org/about/images/logos/wordpress-logo-notext-rgb.png",
+	"success_url": "/",
+	"scripts": {
+		"postdeploy": ""
+	},
+	"env": {
+		"BUCKET_NAME":      { "description": "您的oss bucket名" },
+		"BUCKET_API_KEY":       { "description": "" },
+		"BUCKET_API_SECRET":   { "description": "" },
+	},
+	"addons": [
+	],
+	"image": "heroku/python"
+}
