@@ -1,5 +1,11 @@
 # fontObfuscator
 
+> 通过字体混淆反爬虫。
+>
+> https://font-obfuscator.herokuapp.com/static/demo.html
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ## 简介
 
 感谢[基础字体作者](https://github.com/minjiex/kaigen-gothic)。
@@ -36,6 +42,8 @@ python3 run test.py
 
 ### 普通混淆（明文+阴书）
 
+- 本地：
+
 ```shell script
 curl -X POST \
   http://127.0.0.1:1323/api/encrypt \
@@ -48,11 +56,40 @@ curl -X POST \
 }'
 ```
 
+- 线上：
+
+```shell script
+curl -X POST \
+  https://font-obfuscator.herokuapp.com/api/encrypt \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "plaintext": "⓪⓵ⅱ③肆⓹㈥ⅦⅧ㊈谦锗孵塔瓤晰痔尖凯荤放国踌励拾卓侍猴补鹿德坪恶乙缺咯低谅骇绷曙赋睡矣凹陨详痪裹砍帜刀蟹泣搁诬拍宵茄氦汾确沈厢败匪零们摘漾掇叛概冕莫歌怀鸳喷顽碗脾冶家扒腕惋爹型谐男戈骂权疲洼不园崭烯",
+    "shadowtext": "奎粕澜椅敢悦钳婿哨羞局夹鲁豹瞅新旧寇测殖浩买拈悠实谓臼撬姓毯咏乎降殴肝钝妨蓖舞呐训耍积尺筐组轰迂话泽妆裂圈篙泞暮娶派财囊垣菊拂技辨墟音寿束老日闭舶操说阀耶土饺逃舌佯惠屿魏煽委汛陷萨砖吝尧确撤绕倘荫颗相",
+    "only_ttf": false,
+    "upload": false
+}'
+```
+
 ### 加强混淆（混淆 name ）
+
+- 本地：
 
 ```shell script
 curl -X POST \
   http://127.0.0.1:1323/api/encrypt-plus \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "plaintext": "⓪⓵ⅱ③肆⓹㈥ⅦⅧ㊈谦锗孵塔瓤晰痔尖凯荤放国踌励拾卓侍猴补鹿德坪恶乙缺咯低谅骇绷曙赋睡矣凹陨详痪裹砍帜刀蟹泣搁诬拍宵茄氦汾确沈厢败匪零们摘漾掇叛概冕莫歌怀鸳喷顽碗脾冶家扒腕惋爹型谐男戈骂权疲洼不园崭烯",
+    "only_ttf": false,
+    "upload": false
+}'
+```
+
+- 线上:
+
+```shell script
+curl -X POST \
+  https://font-obfuscator.herokuapp.com/api/encrypt-plus/ \
   -H 'Content-Type: application/json' \
   -d '{
     "plaintext": "⓪⓵ⅱ③肆⓹㈥ⅦⅧ㊈谦锗孵塔瓤晰痔尖凯荤放国踌励拾卓侍猴补鹿德坪恶乙缺咯低谅骇绷曙赋睡矣凹陨详痪裹砍帜刀蟹泣搁诬拍宵茄氦汾确沈厢败匪零们摘漾掇叛概冕莫歌怀鸳喷顽碗脾冶家扒腕惋爹型谐男戈骂权疲洼不园崭烯",

@@ -7,7 +7,7 @@
 		"anti scrawler",
 		"python"
 	],
-	"website": "https://github.com/solarhell/fontObfuscator",
+	"website": "https://github.com/Jeff-Tian/fontObfuscator",
 	"repository": "https://github.com/Jeff-Tian/fontObfuscator.git",
 	"logo": "https://s.w.org/about/images/logos/wordpress-logo-notext-rgb.png",
 	"success_url": "/",
@@ -15,11 +15,16 @@
 		"postdeploy": ""
 	},
 	"env": {
-		"BUCKET_NAME":      { "description": "您的oss bucket名" },
-		"BUCKET_API_KEY":       { "description": "" },
-		"BUCKET_API_SECRET":   { "description": "" }
+		"BUCKET_NAME": {
+			"description": "您的oss bucket名"
+		},
+		"BUCKET_API_KEY": {
+			"description": ""
+		},
+		"BUCKET_API_SECRET": {
+			"description": ""
+		}
 	},
-	"addons": [
-	],
+	"addons": [],
 	"image": "heroku/python"
 }
